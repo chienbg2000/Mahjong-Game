@@ -1,6 +1,6 @@
 body.board
     color: white
-    background: black
+    background: #24170f
     margin: 0
     > *
         width: 800px
@@ -24,7 +24,11 @@ body.board
     user-select: none
     touch-action: manipulation
     margin: 0 auto
-    background: #154
+    background: radial-gradient(circle at 50% 35%, #1f7a3a 0%, #0e5a27 60%, #083c19 100%)
+    border: 12px solid #6b3f22
+    border-radius: 28px
+    box-shadow: 0 10px 24px rgba(0,0,0,0.6), inset 0 2px 0 rgba(255,255,255,0.08), inset 0 -2px 0 rgba(0,0,0,0.2)
+    background-clip: padding-box
     > *
         position: absolute
         transform-origin: 0% 0%
@@ -73,7 +77,7 @@ body.board
             text-align: center
             font-family: menu-font
             color: white
-            background: black;
+            background: #2a3f2a;
             border-radius: 4px;
             &:focus
                 background: #999
@@ -84,7 +88,7 @@ body.board
         text-align: right
         white-space: nowrap
         .mianzi
-            background: black
+            background: #2a3f2a
             border-radius: 4px
             cursor: pointer
             opacity: 0.8
@@ -92,7 +96,7 @@ body.board
                 outline: none
                 opacity: 1.0
     > .player
-        background: black
+        background: rgba(0,0,0,0.6)
         font-family: text-font
         opacity: 0.5
         white-space: nowrap
@@ -310,7 +314,7 @@ body.board
                 opacity: 0.1
         &:hover
             border-color: #333
-            background: black
+            background: rgba(0,0,0,0.6)
             img
                 opacity: 0.5
                 &:hover
@@ -324,7 +328,7 @@ body.board
             opacity: 0.7
             display: inline-block
             color: white
-            background: black
+            background: #2a3f2a
             text-decoration: none
             font-size: 18px
             font-family: menu-font

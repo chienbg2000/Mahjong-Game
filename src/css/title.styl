@@ -34,20 +34,38 @@ body.title
         font-family: menu-font
         font-size: 16px
         animation: blink-text 2s infinite
-    .start
+    .presets
         margin: 8px auto
         font-family: text-font
-        width: 120px
-        padding: 4px
-        border-radius: 4px
-        font-size: 16px
-        color: white
-        background: blue
-        cursor: pointer
-        &:hover
-        &:focus
-            background: #ccc
+        .subtitle
+            margin: 0.5em 0 0.8em
+            font-size: 18px
+            color: #333
+            font-family: menu-font
+        .buttons
+            display: grid
+            grid-template-columns: 1fr
+            gap: 12px
+        .preset
+            width: 100%
+            box-sizing: border-box
+            padding: 14px 18px
+            border-radius: 8px
+            font-size: 18px
+            color: white
+            background: #2a3f2a
+            cursor: pointer
+            border: none
             outline: none
+            box-shadow: 0 6px 14px rgba(0,0,0,0.25)
+            transition: transform 0.05s ease, box-shadow 0.2s ease, background 0.2s ease
+            &:hover
+            &:focus
+                background: #355a35
+                outline: none
+            &:active
+                transform: translateY(1px)
+                box-shadow: 0 4px 10px rgba(0,0,0,0.22)
     .login
         margin: 8px auto
         form

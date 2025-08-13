@@ -7,7 +7,12 @@
     div ネット対戦
   .version ver. #{version}
   .loading Loading data...
-  .start.hide(tabindex="0" role="button") START
+  .presets.hide
+    p.subtitle モードを選択してください
+    .buttons
+      .preset(data-preset="default" tabindex="0" role="button") 電脳麻雀（標準）
+      .preset(data-preset="Mリーグルール" tabindex="0" role="button") Mリーグルール
+      .preset(data-preset="Classicルール" tabindex="0" role="button") Classicルール
   if page == 'netplay'
     .login.hide
       form.local(method="POST" action="server/auth/")

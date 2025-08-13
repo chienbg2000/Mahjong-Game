@@ -42,7 +42,7 @@ $(function(){
     };
     const file = new Majiang.UI.PaipuFile($('#file'), 'Majiang.game',
                                             viewer, stat);
-    const rule = Majiang.rule(
+    let rule = Majiang.rule(
                     JSON.parse(localStorage.getItem('Majiang.rule')||'{}'));
 
     function start() {
@@ -76,14 +76,26 @@ $(function(){
         $(window).on('load', function(){
             if (! file.isEmpty) return end();
             hide($('#title .loading'));
-            $('#title .start')
-                .attr('tabindex', 0).attr('role','button')
-                .on('click', ()=>{
-                    clearSelector('title');
-                    start();
-                });
-            show(setSelector($('#title .start'), 'title',
-                            { focus: null, touch: false }));
+            const $presets = $('#title .presets');
+            // default
+            $presets.find('.preset[data-preset="default"]').on('click', ()=>{
+                clearSelector('title');
+                rule = Majiang.rule({});
+                start();
+            });
+            // Mリーグルール
+            $presets.find('.preset[data-preset="Mリーグルール"]').on('click', ()=>{
+                clearSelector('title');
+                rule = Majiang.rule(require('./conf/rule.json')['Mリーグルール']);
+                start();
+            });
+            // Classicルール
+            $presets.find('.preset[data-preset="Classicルール"]').on('click', ()=>{
+                clearSelector('title');
+                rule = Majiang.rule(require('./conf/rule.json')['Classicルール']);
+                start();
+            });
+            show($presets);
         });
         if (loaded) $(window).trigger('load');
     }, 1000);
