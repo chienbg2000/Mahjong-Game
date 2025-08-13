@@ -1,23 +1,32 @@
 body.title
     color:      white
-    background: black
+    background: #24170f
     margin: 0
+    > *
+        width: 800px
+        margin: 0 auto
     #title
         display: block
     #navi
         width: 800px
         margin: 0 auto
     > .version
-        display: none
+        display: block
+        font-size: 16px
+        font-family: defen-font
+        text-align: right
 
 #title
     display: none
     margin: 40px auto
-    width: 640px
-    padding: 4px
-    border-radius: 5px
-    background: white
-    color:      black
+    width: 800px
+    max-width: 100%
+    padding: 12px
+    border-radius: 28px
+    box-shadow: 0 10px 24px rgba(0,0,0,0.6), inset 0 2px 0 rgba(255,255,255,0.08), inset 0 -2px 0 rgba(0,0,0,0.2)
+    background: radial-gradient(circle at 50% 35%, #1f7a3a 0%, #0e5a27 60%, #083c19 100%)
+    background-clip: padding-box
+    color:      white
     text-align: center
     font-family: text-font
     h1
@@ -28,9 +37,10 @@ body.title
     .version
         font-family: defen-font
         font-size: 24px
+        color: white
     .loading
         margin: 8px auto
-        color: #666
+        color: rgba(255,255,255,0.7)
         font-family: menu-font
         font-size: 16px
         animation: blink-text 2s infinite
@@ -40,7 +50,7 @@ body.title
         .subtitle
             margin: 0.5em 0 0.8em
             font-size: 18px
-            color: #333
+            color: rgba(255,255,255,0.9)
             font-family: menu-font
         .buttons
             display: grid
@@ -49,23 +59,24 @@ body.title
         .preset
             width: 100%
             box-sizing: border-box
-            padding: 14px 18px
-            border-radius: 8px
-            font-size: 18px
-            color: white
-            background: #2a3f2a
+            padding: 16px 20px
+            border-radius: 10px
+            font-size: 20px
+            font-weight: 600
+            color: #24170f
+            background: linear-gradient(180deg, #f0b44a 0%, #d8901f 100%)
             cursor: pointer
             border: none
             outline: none
-            box-shadow: 0 6px 14px rgba(0,0,0,0.25)
-            transition: transform 0.05s ease, box-shadow 0.2s ease, background 0.2s ease
+            box-shadow: 0 8px 18px rgba(0,0,0,0.35)
+            transition: transform 0.06s ease, box-shadow 0.2s ease, background 0.2s ease
             &:hover
             &:focus
-                background: #355a35
+                background: linear-gradient(180deg, #f5c56a 0%, #e3a63e 100%)
                 outline: none
             &:active
-                transform: translateY(1px)
-                box-shadow: 0 4px 10px rgba(0,0,0,0.22)
+                transform: translateY(1px) scale(0.99)
+                box-shadow: 0 5px 12px rgba(0,0,0,0.28)
     .login
         margin: 8px auto
         form
@@ -78,7 +89,11 @@ body.title
             input[type="submit"]
                 border: none
                 color: white
-                background: blue
+                background: #2a3f2a
+                border-radius: 6px
+                padding: 6px 12px
+                &:hover
+                    background: #355a35
         img
             width: 1.2em
             vertical-align: middle
@@ -89,3 +104,20 @@ body.title
                 background: none
                 text-align: left
                 padding: 0
+
+@media screen and (max-width: 800px)
+    body.title
+        > *
+            width: 100%
+            box-sizing: border-box
+        #title
+            width: 100%
+            max-width: 800px
+            box-sizing: border-box
+            padding-left: 12px
+            padding-right: 12px
+            h1
+                height: auto
+                img
+                    width: 100%
+                    height: auto

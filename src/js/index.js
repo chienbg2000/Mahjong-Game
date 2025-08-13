@@ -45,6 +45,21 @@ $(function(){
     let rule = Majiang.rule(
                     JSON.parse(localStorage.getItem('Majiang.rule')||'{}'));
 
+    function applyBoardTransformScale() {
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        const $boardRoot = $('#board');
+        if (viewportWidth && viewportWidth < 800) {
+            const s = viewportWidth / 800;
+            $boardRoot.css('transform-origin', '0% 0%')
+                      .css('transform', `scale(${s})`);
+            $('#board > .board').css('transform', 'none');
+            $('#board > .controller').css('transform', 'none');
+        }
+        else {
+            $boardRoot.css('transform', '');
+        }
+    }
+
     function start() {
         let players = [ new Majiang.UI.Player($('#board'), pai, audio) ];
         for (let i = 1; i < 4; i++) {
@@ -57,6 +72,7 @@ $(function(){
         $('#board .controller').removeClass('paipu')
         $('body').attr('class','board');
         scale($('#board'), $('#space'));
+        applyBoardTransformScale();
 
         new Majiang.UI.GameCtl($('#board'), 'Majiang.pref', game, game._view);
         game.kaiju();
@@ -81,18 +97,21 @@ $(function(){
             $presets.find('.preset[data-preset="default"]').on('click', ()=>{
                 clearSelector('title');
                 rule = Majiang.rule({});
+                applyBoardTransformScale();
                 start();
             });
             // Mリーグルール
             $presets.find('.preset[data-preset="Mリーグルール"]').on('click', ()=>{
                 clearSelector('title');
                 rule = Majiang.rule(require('./conf/rule.json')['Mリーグルール']);
+                applyBoardTransformScale();
                 start();
             });
             // Classicルール
             $presets.find('.preset[data-preset="Classicルール"]').on('click', ()=>{
                 clearSelector('title');
                 rule = Majiang.rule(require('./conf/rule.json')['Classicルール']);
+                applyBoardTransformScale();
                 start();
             });
             show($presets);
